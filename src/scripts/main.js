@@ -1,7 +1,9 @@
-import APIManager from "./dbCalls";
-
+import toDOM from "./DOMBuilder";
+let buttons = require("./buttons");
+import saveButton from "./addInterest";
 //testing import of dbcalls and calling getAllPlaces
-APIManager.getAllPlaces()
-    .then((places) => {
-        console.log("Oh the places you will go:", places);
-    });
+
+toDOM.populateVisited();
+toDOM.populateUnvisited();
+saveButton
+
