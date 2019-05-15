@@ -1,0 +1,53 @@
+*, html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.main__header {
+  border: 1px solid black;
+  height: 4rem;
+}
+
+.main__header h1 {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+.navbar {
+  border: 1px solid black;
+  height: 2.5rem;
+}
+
+.navbar__list {
+  list-style: none;
+  display: flex;
+}
+
+.nav__item {
+  display: inline-block;
+}
+
+.interest__div {
+  border: 1px solid black;
+  margin: 1rem 1rem;
+  padding: 0 .5rem;
+}
+
+.interest__div__unvisited {
+  border: 1px solid lightsalmon;
+  margin: 1rem 1rem;
+  padding: 0 .5rem;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}

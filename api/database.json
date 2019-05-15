@@ -1,20 +1,39 @@
 {
-    "places": [
-        {
-            "id": 1,
-            "name": "Italy",
-            "visa_required": false
-        },
-        {
-            "id": 2,
-            "name": "Switzerland",
-            "visa_required": true
-        },
-        {
-            "id": 3,
-            "name": "France",
-            "visa_required": false
-        }
-    ],
-    "interests": []
+  "places": [
+    {
+      "id": 1,
+      "name": "Italy",
+      "visa_required": false
+    },
+    {
+      "id": 2,
+      "name": "Switzerland",
+      "visa_required": true
+    },
+    {
+      "id": 3,
+      "name": "France",
+      "visa_required": false
+    }
+  ],
+  "interests": [
+    {
+      "id": 1,
+      "placeId": 3,
+      "name": "Local Market",
+      "description": "Local market where you can try purchase local products and try the local food",
+      "cost": 0,
+      "review": "",
+      "visited": "false"
+    },
+    {
+      "id": 2,
+      "placeId": 1,
+      "name": "Venicci Circle",
+      "description": "The center of Venicci, with shopping and food",
+      "cost": 42.78,
+      "review": "Beautiful public area with a historic fountain. The tiny cafes are perfect for getting coffee in the morning and the shops that surround this gorgeous walkable area do not disappoint.",
+      "visited": "true"
+    }
+  ]
 }

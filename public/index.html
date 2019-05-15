@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Browserify Starter</title>
+    <title>Ternary Traveler</title>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
-    <h1>Hello World</h1>
 
+<body>
+    <header class="main__header">
+        <h1>welcome, traveler!</h1>
+    </header>
+    <nav class="navbar">
+        <ul class="navbar__list">
+            <li class="nav__item" id="view__interests"><button id="show__interests">show interest list</button></li>
+            <li class="nav__item" id="add__interests"><button id="add__interest">add interest</button></li>
+        </ul>
+    </nav>
+    <main class="main">
+        <div id="interest__list" class="show">
+            <h2>visited:</h2>
+            <div id="visited__output"></div>
+            <h2>yet to visit:</h2>
+            <div id="unvisited__output"></div>
+        </div>
+        <div id="interest__form" class="interest__form hide">
+            <h5>Name?</h5>
+            <input id="interest__name__form" type="text" placeholder="interest name...">
+            <h5>Description?</h5>
+            <input id="interest__desc__form" type="text" placeholder="interest description...">
+            <h5>Review?</h5>
+            <input id="interest__review__form" type="text">
+            <h5>Cost?</h5>
+            <input id="interest__cost__form" type="number">
+            <h5>What Country?</h5>
+            <select id="interest__country__form">
+                <option value="1">Italy</option>
+                <option value="2">Switzerland</option>
+                <option value="3">France</option>
+            </select>
+            <h5>Visited?</h5>
+            <select id="interest__visited__form">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <br>
+            <button id="save__new__interest">Save New Interest</button>
+
+        </div>
+    </main>
     <script src="bundle.js"></script>
 </body>
+
 </html>
