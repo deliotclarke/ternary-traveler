@@ -13,12 +13,13 @@ const confirmFunction = (obj) => {
   let sure = confirm(`Are you sure you'd like to delete ${obj.name}?`);
   if (sure === true) {
     APIManager.deleteInterest(obj.id)
+      .then(DOMManager.populateDOM);
     alert(`${obj.name} deleted!`);
   }
 }
 
 const DOMManager = {
-  populateVisited() {
+  populateDOM() {
     visitedOutput.innerHTML = "";
     APIManager.getAllInterests()
       .then(interests => {
@@ -28,15 +29,9 @@ const DOMManager = {
             let interestElement = this.buildVisited(interest);
             visitedOutput.append(interestElement);
 
-          }
-        })
-      })
-  },
-  populateUnvisited() {
-    APIManager.getAllInterests()
-      .then(interests => {
-        interests.forEach(interest => {
-          if (interest.visited === "false") {
+          } else {
+
+            console.log(interest)
 
             let interestElement = this.buildUnvisited(interest);
             unvisitedOutput.append(interestElement);
@@ -97,8 +92,6 @@ const DOMManager = {
     deleteButton.textContent = "delete";
     deleteButton.addEventListener("click", (e) => {
       confirmFunction(obj)
-        .then(DOMManager.populateVisited)
-        .then(DOMManager.populateUnvisited);
     })
 
     //append all to div
@@ -204,8 +197,6 @@ const DOMManager = {
     deleteButton.textContent = "delete";
     deleteButton.addEventListener("click", (e) => {
       confirmFunction(obj)
-        .then(DOMManager.populateVisited)
-        .then(DOMManager.populateUnvisited)
     })
 
     //append all to div

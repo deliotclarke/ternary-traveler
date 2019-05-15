@@ -26,8 +26,7 @@ const saveButton = saveInterestButton.addEventListener("click", () => {
   )
 
   APIManager.addInterest(newIntObj)
-    .then(DOMManager.populateVisited)
-    .then(DOMManager.populateUnvisited)
+    .then(DOMManager.populateDOM)
 
   alert("Success");
 

@@ -18,15 +18,6 @@
   ],
   "interests": [
     {
-      "id": 1,
-      "placeId": 3,
-      "name": "Local Market",
-      "description": "Local market where you can try purchase local products and try the local food",
-      "cost": 0,
-      "review": "",
-      "visited": "false"
-    },
-    {
       "id": 2,
       "placeId": 1,
       "name": "Venicci Circle",
@@ -34,6 +25,24 @@
       "cost": 42.78,
       "review": "Beautiful public area with a historic fountain. The tiny cafes are perfect for getting coffee in the morning and the shops that surround this gorgeous walkable area do not disappoint.",
       "visited": "true"
+    },
+    {
+      "placeId": 1,
+      "name": "lkjasdf",
+      "description": "l;kajdsf",
+      "cost": "888",
+      "review": "lkjadf",
+      "visited": "false",
+      "id": 5
+    },
+    {
+      "placeId": 1,
+      "name": "i dont knowman",
+      "description": "lkjadf",
+      "cost": "444",
+      "review": "lkjadf",
+      "visited": "false",
+      "id": 6
     }
   ]
 }
