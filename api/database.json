@@ -18,22 +18,85 @@
   ],
   "interests": [
     {
-      "id": 1,
       "placeId": 3,
-      "name": "Local Market",
-      "description": "Local market where you can try purchase local products and try the local food",
-      "cost": 0,
-      "review": "",
-      "visited": "false"
+      "name": "the riviera",
+      "description": "it's a river",
+      "cost": "450.59",
+      "review": "it's pretty cool",
+      "visited": "true",
+      "id": 3
     },
     {
-      "id": 2,
       "placeId": 1,
       "name": "Venicci Circle",
       "description": "The center of Venicci, with shopping and food",
-      "cost": 42.78,
-      "review": "Beautiful public area with a historic fountain. The tiny cafes are perfect for getting coffee in the morning and the shops that surround this gorgeous walkable area do not disappoint.",
-      "visited": "true"
+      "cost": "42.78",
+      "review": "Beautiful public area with a historic fountain. The tiney cafes are perfect for getting coffe in the morning and the shops that surround this gorgeous walkable area do not disappoint",
+      "visited": "true",
+      "id": 4
+    },
+    {
+      "placeId": 2,
+      "name": "Chocolate Factory",
+      "description": "They make chocolate there",
+      "cost": "",
+      "review": "",
+      "visited": "false",
+      "id": 5
+    },
+    {
+      "placeId": "1",
+      "name": "The Tower of Pisa",
+      "description": "It's a broken tower",
+      "cost": "0",
+      "review": "it sure was a broken tower",
+      "visited": "true",
+      "id": 6
+    },
+    {
+      "placeId": 1,
+      "name": "AAAA PIIIZZZAAA PIIIIEEEE",
+      "description": "it's pizza",
+      "cost": "",
+      "review": "",
+      "visited": "false",
+      "id": 7
+    },
+    {
+      "placeId": "3",
+      "name": "The Catacombs",
+      "description": "Where all the dead people are under Paris",
+      "cost": "free.99",
+      "review": "There were wayyyyyy too many dead people. But I had a great time.",
+      "visited": "true",
+      "id": 8
+    },
+    {
+      "placeId": "",
+      "name": "",
+      "description": "",
+      "cost": "",
+      "review": "",
+      "visited": "",
+      "id": 9
+    },
+    {
+      "placeId": 3,
+      "name": "The South of France",
+      "description": "I heard it's pretty",
+      "cost": "2,500.29",
+      "review": "It actually was really pretty, the wine was great and Ernest Hemingway's ghost was a delight.",
+      "visited": "true",
+      "id": 10
+    },
+    {
+      "placeId": "2",
+      "name": "The Clock Maker",
+      "description": "It's a place where a guy makes clocks.",
+      "cost": "",
+      "review": "",
+      "visited": "false",
+      "id": 11
     }
   ]
 }

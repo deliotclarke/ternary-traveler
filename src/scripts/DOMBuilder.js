@@ -1,4 +1,5 @@
 import APIManager from "./dbCalls";
+import edit from "./editForm";
 
 const visitedOutput = document.querySelector("#visited__output")
 const unvisitedOutput = document.querySelector("#unvisited__output");
@@ -13,34 +14,39 @@ const confirmFunction = (obj) => {
   let sure = confirm(`Are you sure you'd like to delete ${obj.name}?`);
   if (sure === true) {
     APIManager.deleteInterest(obj.id)
+      .then(DOMManager.populateDOM);
+
     alert(`${obj.name} deleted!`);
   }
 }
 
 const DOMManager = {
-  populateVisited() {
+  populateDOM() {
     visitedOutput.innerHTML = "";
+    unvisitedOutput.innerHTML = "";
     APIManager.getAllInterests()
       .then(interests => {
         interests.forEach(interest => {
+          let visitedArray = [];
+          let unvisitedArray = [];
           if (interest.visited === "true") {
 
-            let interestElement = this.buildVisited(interest);
-            visitedOutput.append(interestElement);
+            let interestElement = DOMManager.buildVisited(interest);
+            visitedArray.push(interestElement);
+
+          } else if (interest.visited === "false") {
+
+            let interestElement = DOMManager.buildUnvisited(interest);
+            unvisitedArray.push(interestElement);
 
           }
-        })
-      })
-  },
-  populateUnvisited() {
-    APIManager.getAllInterests()
-      .then(interests => {
-        interests.forEach(interest => {
-          if (interest.visited === "false") {
 
-            let interestElement = this.buildUnvisited(interest);
-            unvisitedOutput.append(interestElement);
-          }
+          visitedArray.forEach(element => {
+            visitedOutput.appendChild(element);
+          })
+          unvisitedArray.forEach(element => {
+            unvisitedOutput.appendChild(element);
+          })
         })
       })
   },
@@ -48,9 +54,10 @@ const DOMManager = {
 
     //create div and set attributes
     let intDiv = document.createElement("div");
+
     setAttributes(intDiv, {
       id: `interest__${obj.id}`,
-      class: "interest__div"
+      class: "interest__div",
     })
 
     //create content
@@ -84,9 +91,13 @@ const DOMManager = {
       class: "edit__button"
     })
     editButton.textContent = "edit";
-    editButton.addEventListener("click", (e) => {
-      console.log("edit");
-      console.log(e.target.parentNode);
+    editButton.addEventListener("click", () => {
+
+      APIManager.getSingleInterest(obj.id)
+        .then(obj => {
+          edit(obj);
+        })
+
     })
 
     let deleteButton = document.createElement("button");
@@ -95,10 +106,8 @@ const DOMManager = {
       class: "delete__button"
     })
     deleteButton.textContent = "delete";
-    deleteButton.addEventListener("click", (e) => {
+    deleteButton.addEventListener("click", () => {
       confirmFunction(obj)
-        .then(DOMManager.populateVisited)
-        .then(DOMManager.populateUnvisited);
     })
 
     //append all to div
@@ -170,9 +179,20 @@ const DOMManager = {
       class: "save__input__button"
     })
     saveInputButton.textContent = "save!"
-    saveInputButton.addEventListener("click", (e) => {
-      console.log("save me");
-      //this needs to save the info from the inputs and also switch the objects visited to true
+    saveInputButton.addEventListener("click", () => {
+
+      let newCost = costInput.value;
+      let newReview = reviewInput.value;
+
+      let newObjValues = {
+        cost: newCost,
+        review: newReview,
+        visited: "true"
+      }
+
+      APIManager.editInterest(obj.id, newObjValues)
+        .then(DOMManager.populateDOM);
+
     })
 
     inputDiv.appendChild(reviewInputLabel);
@@ -187,13 +207,14 @@ const DOMManager = {
       class: "update__button"
     })
     updateButton.textContent = "update";
-    updateButton.addEventListener("click", (e) => {
-      console.log("update");
+    updateButton.addEventListener("click", () => {
+
       setAttributes(inputDiv, {
         class: `input__div__${obj.id} show`
       })
       intDiv.removeChild(updateButton);
       intDiv.removeChild(deleteButton);
+
     })
 
     let deleteButton = document.createElement("button");
@@ -202,10 +223,8 @@ const DOMManager = {
       class: "delete__button"
     })
     deleteButton.textContent = "delete";
-    deleteButton.addEventListener("click", (e) => {
+    deleteButton.addEventListener("click", () => {
       confirmFunction(obj)
-        .then(DOMManager.populateVisited)
-        .then(DOMManager.populateUnvisited)
     })
 
     //append all to div
