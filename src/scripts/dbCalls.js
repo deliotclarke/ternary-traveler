@@ -10,7 +10,7 @@ const APIManager = {
             .then(response => response.json())
     },
     getSingleInterest: function (id) {
-        return fetch(`${baseURL}/${id}`, {
+        return fetch(`${baseURL}/interests/${id}`, {
             method: "GET",
             headers: {
                 "content-type": "application/json"
